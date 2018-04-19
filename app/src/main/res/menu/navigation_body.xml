@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:checked="true"
+            android:icon="@drawable/ic_home_24dp"
+            android:title="首页"/>
+    </group>
+
+    <group>
+        <item
+            android:icon="@drawable/ic_history_24dp"
+            android:title="历史记录"/>
+
+        <item
+            android:icon="@drawable/ic_offline_download_24dp"
+            android:title="离线缓存"/>
+
+        <item
+            android:icon="@drawable/ic_collect_24dp"
+            android:title="我的收藏"/>
+        <item
+            android:icon="@drawable/ic_attention_24dp"
+            android:title="我的关注"/>
+        <item
+            android:icon="@drawable/ic_look_it_later_24dp"
+            android:title="稍后再看"/>
+    </group>
+
+    <group android:id="@+id/group_02">
+        <item
+            android:icon="@drawable/ic_live_24dp"
+            android:title="修改密码"/>
+        <item
+            android:icon="@drawable/ic_big_member_24dp"
+            android:title="我的大会员"/>
+        <item
+            android:icon="@drawable/ic_free_flow_service_24dp"
+            android:title="免流量服务"/>
+        <item
+            android:icon="@drawable/ic_member_order_24dp"
+            android:title="代办事项"/>
+    </group>
+
+
+</menu>

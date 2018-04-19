@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_login"
+        android:layout_width="@dimen/x839"
+        android:layout_height="@dimen/y957"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/y300">
+
+        <ImageView
+            android:id="@+id/icon_toux"
+            android:layout_width="@dimen/x192"
+            android:layout_height="@dimen/y191"
+            android:layout_marginLeft="@dimen/x100"
+            android:layout_marginStart="@dimen/x100"
+            android:layout_marginTop="@dimen/y230"
+            android:background="@drawable/icon_toux"
+            android:contentDescription="@string/app_name" />
+
+        <EditText
+            android:id="@+id/edit_user_name"
+            android:layout_width="@dimen/x430"
+            android:layout_height="@dimen/y75"
+            android:layout_alignTop="@+id/icon_toux"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/icon_toux"
+            android:layout_toRightOf="@+id/icon_toux"
+            android:background="@drawable/shuru_kuang"
+            android:drawableLeft="@drawable/icon_male"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/icon_male"
+            android:hint="请输入用户名"
+            android:textSize="10sp" />
+
+        <EditText
+            android:id="@+id/edit_user_password"
+            android:layout_width="@dimen/x430"
+            android:layout_height="@dimen/y75"
+            android:layout_alignBottom="@+id/icon_toux"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/icon_toux"
+            android:layout_toRightOf="@+id/icon_toux"
+            android:background="@drawable/shuru_kuang"
+            android:drawableLeft="@drawable/icon_male"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/icon_locked"
+            android:hint="请输入用户密码"
+            android:inputType="textPassword"
+            android:textSize="10sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/y40"
+            android:layout_below="@+id/icon_toux"
+            android:layout_marginLeft="@dimen/x550"
+            android:layout_marginStart="@dimen/x550"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:layout_width="@dimen/x40"
+                android:layout_height="@dimen/x40"
+                android:background="@drawable/icon_01"
+                android:contentDescription="@string/app_name" />
+
+            <TextView
+                android:id="@+id/register_device"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/x40"
+                android:layout_marginLeft="@dimen/x12"
+                android:layout_marginStart="@dimen/x12"
+                android:gravity="center_vertical"
+                android:text="设备注册"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btn_login"
+            android:contentDescription="@string/app_name"
+            android:layout_width="@dimen/x295"
+            android:layout_height="@dimen/x295"
+            android:background="@drawable/login_button" 
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/y80"
+            android:layout_marginStart="@dimen/y300"
+             android:layout_marginLeft="@dimen/y300"/>
+    </RelativeLayout>
+
+</LinearLayout>
