@@ -36,6 +36,8 @@
             android:drawablePadding="10dp"
             android:drawableStart="@drawable/icon_male"
             android:hint="请输入用户名"
+            android:lines="1"
+            android:inputType="text"
             android:textSize="10sp" />
 
         <EditText
@@ -52,6 +54,7 @@
             android:drawablePadding="10dp"
             android:drawableStart="@drawable/icon_locked"
             android:hint="请输入用户密码"
+            android:lines="1"
             android:inputType="textPassword"
             android:textSize="10sp" />
 

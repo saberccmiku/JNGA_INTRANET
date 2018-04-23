@@ -28,7 +28,9 @@
         </activity>
         <activity android:name=".module.MainActivity"/>
         <activity android:name=".module.activity.LoginActivity"/>
-        <activity android:name=".module.activity.MessagePushMenuActivity"/>
+        <activity android:name=".module.activity.message.MessagePushMenuActivity"/>
+        <activity android:name=".module.activity.message.MessagePushActivity"/>
+        <activity android:name=".module.activity.message.MessageContentActivity"/>
     </application>
 
 </manifest>

@@ -16,7 +16,7 @@ import com.yskj.jnga.adapter.CommonRecyclerAdapter;
 import com.yskj.jnga.adapter.CommonRecyclerViewHolder;
 import com.yskj.jnga.entity.MenuEntity;
 import com.yskj.jnga.entity.push.StatisticInfo;
-import com.yskj.jnga.module.activity.MessagePushMenuActivity;
+import com.yskj.jnga.module.activity.message.MessagePushMenuActivity;
 import com.yskj.jnga.module.base.RxBaseActivity;
 import com.yskj.jnga.network.json.RetrofitHelper;
 import com.yskj.jnga.utils.UIUtils;

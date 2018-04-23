@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="5dp" >
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:shadowColor="#1A7FCF"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="6"
+        android:text="下午3:00到会议室开展关于防范社区恐怖袭击的联防会议"
+        android:textColor="#1A7FCF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#1A7FCF" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_weight="0.8"
+        android:background="@drawable/l_shape_rect5" >
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left|top"
+            android:minLines="5"
+            android:padding="8dp"
+            android:text="下午3:00到会议室开展关于防范社区恐怖袭击的联防会议，请大家务必到会参加！"
+            android:textColor="#88000000"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+    </ScrollView>
+
+    <EditText
+        android:id="@+id/et_gconent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_weight="0.2"
+        android:background="@drawable/l_shape_rect5"
+        android:gravity="start|top"
+        android:hint="回复:"
+        android:maxLines="10"
+        android:minLines="5"
+        android:padding="8dp"
+        android:textColor="#FF34B3"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:scrollbars="vertical"
+        android:text="通知人:黄克凡，通知时间:2016-12-24 8:30 部门办公室"
+        android:textColor="#FF4040"
+        android:textSize="15sp"
+        android:textStyle="italic" />
+
+    <com.yskj.jnga.widget.Button
+        android:id="@+id/btn_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/l_selector_round_rect1"
+        android:gravity="center"
+        android:paddingBottom="8dp"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:paddingTop="8dp"
+        android:text="已阅"
+        android:textColor="#FFF"
+        android:textSize="16sp" />
+
+</LinearLayout>

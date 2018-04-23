@@ -8,10 +8,17 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.widget.Toast;
 
+import com.yskj.jnga.network.ApiConstants;
+
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by 63987 on 2018/4/17
@@ -73,5 +80,62 @@ public class Utils {
             isNetConnected = false;
         }
         return isNetConnected;
+    }
+
+    	/*
+	 * 获取网络服务时间
+	 */
+
+    public static String getNetTime(String urlStr) {
+        URL url = null;// 取得资源对象
+        URLConnection uc = null;
+        String timeStr = null;
+        try {
+            url = new URL(urlStr);
+            uc = url.openConnection();
+            uc.connect();
+            long d = uc.getDate();
+            timeStr = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CANADA).format(new Date(d));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return timeStr;
+    }
+
+    	/*
+	 * 获取网络服务时间指定格式
+	 */
+
+    public static String getNetTime(String urlStr, String type) {
+        URL url = null;// 取得资源对象
+        URLConnection uc = null;
+        String timeStr = null;
+        try {
+            url = new URL(urlStr);
+            uc = url.openConnection();
+            uc.connect();
+            long d = uc.getDate();
+            timeStr = new SimpleDateFormat(type,Locale.CANADA).format(new Date(d));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return timeStr;
+    }
+
+
+    /*
+ * 获取客户端对应服务器的时间 默认yyyy-MM-dd HH:mm:ss
+ */
+    public static String getNetTime() {
+        return Utils.getNetTime("http://" + ApiConstants.CONNIP + ApiConstants.PATH);
+    }
+
+    /*
+ * 获取客户端对应服务器的时间 指定格式
+ */
+    public static String getNetTimeByType(String type) {
+        return Utils.getNetTime("http://" + ApiConstants.CONNIP + ApiConstants.PATH, type);
     }
 }

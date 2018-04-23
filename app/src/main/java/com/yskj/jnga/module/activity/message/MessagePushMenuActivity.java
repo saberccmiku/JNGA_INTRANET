@@ -1,9 +1,9 @@
-package com.yskj.jnga.module.activity;
+package com.yskj.jnga.module.activity.message;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -93,6 +93,17 @@ public class MessagePushMenuActivity extends RxBaseActivity implements OnClickLi
 
         };
         rv.setAdapter(mAdapter);
+        mAdapter.setOnItemClickListener(new CommonRecyclerAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                startActivity(new Intent(MessagePushMenuActivity.this, MessagePushActivity.class).putExtra("title", mMenuEntities.get(position).getTitle()));
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+
+            }
+        });
         updateMenuView(menusEntityList_01);
     }
 
@@ -224,6 +235,7 @@ public class MessagePushMenuActivity extends RxBaseActivity implements OnClickLi
 
     /**
      * 设置信息推送首界面数据加载状态
+     *
      * @param isLoad 是否加载数据
      */
     private void setProgress(boolean isLoad) {
@@ -232,7 +244,7 @@ public class MessagePushMenuActivity extends RxBaseActivity implements OnClickLi
             mGif.setMovieResource(R.raw.zdtb);
             mGif.setVisibility(View.VISIBLE);
             mPng.setVisibility(View.GONE);
-        }else{
+        } else {
             mGif.setVisibility(View.GONE);
             mPng.setVisibility(View.VISIBLE);
         }

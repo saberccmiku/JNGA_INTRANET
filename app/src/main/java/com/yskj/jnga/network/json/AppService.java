@@ -1,6 +1,7 @@
 package com.yskj.jnga.network.json;
 
 import com.yskj.jnga.entity.User;
+import com.yskj.jnga.entity.push.MessageInfo;
 import com.yskj.jnga.entity.push.StatisticInfo;
 import com.yskj.jnga.network.ApiConstants;
 
@@ -27,5 +28,11 @@ public interface AppService {
      */
     @POST(ApiConstants.SEARCH)
     Observable<StatisticInfo> getStatisticInfo(@Body RequestBody body);
+
+    /**
+     * 获取信息推送详情内容
+     */
+    @POST(ApiConstants.SEARCH)
+    Observable<MessageInfo> getMessageInfo(@Body RequestBody body);
 
 }
