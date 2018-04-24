@@ -1,6 +1,9 @@
 package com.yskj.jnga.module.activity.message;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,6 +21,7 @@ import com.yskj.jnga.R;
 import com.yskj.jnga.adapter.CommonRecyclerAdapter;
 import com.yskj.jnga.adapter.CommonRecyclerViewHolder;
 import com.yskj.jnga.entity.MenuEntity;
+import com.yskj.jnga.entity.push.MessageReceive;
 import com.yskj.jnga.entity.push.StatisticInfo;
 import com.yskj.jnga.module.base.RxBaseActivity;
 import com.yskj.jnga.network.json.RetrofitHelper;
@@ -38,6 +42,7 @@ public class MessagePushMenuActivity extends RxBaseActivity implements OnClickLi
     private TextView tv_count_01, tv_count_02;
     private GifView mGif;
     private ImageView mPng;
+    private InformationReceiver ir;
 
     //总栏目
     private MenuEntity[] menusEntityList_03 = {new MenuEntity("20180206000002", "警务工作", R.drawable.jwxx, 0),
@@ -61,6 +66,11 @@ public class MessagePushMenuActivity extends RxBaseActivity implements OnClickLi
 
     @Override
     public void initViews(Bundle savedInstanceState) {
+
+        // 注册广播
+        ir = new InformationReceiver();
+        IntentFilter filter = new IntentFilter(MessageContentActivity.sAction);
+        this.registerReceiver(ir, filter);
 
         ImageButton ib_back = findViewById(R.id.ib_back);
         ib_back.setOnClickListener(this);
@@ -195,6 +205,7 @@ public class MessagePushMenuActivity extends RxBaseActivity implements OnClickLi
                         //统计二级分类对应的三级分类数量
                         if (beanResults != null && beanResults.size() != 0) {
                             for (MenuEntity entity : menusEntityList_01) {
+                                entity.setMark(0);
                                 for (StatisticInfo.BeanResult beanResult : beanResults) {
                                     if (entity.getId().equals(beanResult.getPID())) {
                                         entity.setMark(entity.getMark() + beanResult.getCOUNT());
@@ -203,6 +214,7 @@ public class MessagePushMenuActivity extends RxBaseActivity implements OnClickLi
                             }
 
                             for (MenuEntity entity : menusEntityList_02) {
+                                entity.setMark(0);
                                 for (StatisticInfo.BeanResult beanResult : beanResults) {
                                     if (entity.getId().equals(beanResult.getPID())) {
                                         entity.setMark(entity.getMark() + beanResult.getCOUNT());
@@ -213,12 +225,12 @@ public class MessagePushMenuActivity extends RxBaseActivity implements OnClickLi
 
 
                             //统计一级分类对应的二级分类数量
-
+                            menusEntityList_03[0].setMark(0);
                             for (MenuEntity entity : menusEntityList_01) {
 
                                 menusEntityList_03[0].setMark(menusEntityList_03[0].getMark() + entity.getMark());
                             }
-
+                            menusEntityList_03[1].setMark(0);
                             for (MenuEntity entity : menusEntityList_02) {
 
                                 menusEntityList_03[1].setMark(menusEntityList_03[1].getMark() + entity.getMark());
@@ -264,6 +276,44 @@ public class MessagePushMenuActivity extends RxBaseActivity implements OnClickLi
             case R.id.ib_02:
                 updateMenuView(menusEntityList_02);
                 break;
+        }
+    }
+
+
+    /**
+     * 处理下级界面信息处理信息情况，更新本界面
+     *
+     * @author saber
+     *
+     */
+    private class InformationReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            MessageReceive ms = (MessageReceive) intent.getSerializableExtra(MessageContentActivity.sAction);
+            for (MenuEntity result : mMenuEntities) {
+                if (result.getId().equals(ms.getMS_MID())) {
+                    int count = result.getMark() - 1;
+                    if (count - 1 < 0) {
+                        result.setMark(0);
+                    } else {
+                        result.setMark(count);
+                    }
+
+                }
+            }
+            mAdapter.notifyDataSetChanged();
+
+        }
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (ir != null) {
+            unregisterReceiver(ir);
         }
     }
 }

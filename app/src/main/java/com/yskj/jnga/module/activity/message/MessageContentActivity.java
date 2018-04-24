@@ -54,7 +54,7 @@ public class MessageContentActivity extends RxBaseActivity {
     private AlertDialog ad;
     public ProgressDialog pd;
     private MyHandler myHandler;
-    public static final String mAction = "message_info";
+    public static final String sAction = "message_info";
 
     @Override
     public int getLayoutId() {
@@ -127,13 +127,10 @@ public class MessageContentActivity extends RxBaseActivity {
 
                             StringBuffer sb = new StringBuffer();
                             BaseTable ms_police_receive = new BaseTable();
-                            ms_police_receive.setTableName("ms_police_receive");
+                            ms_police_receive.setTableName("MS_Police_receive");
                             ms_police_receive.setContentId(mMessages.get(position).getMS_MID());
-                            ms_police_receive.putField("ms_gstate", "已回复");
-                            sb.append(
-                                    "update ms_police_receive r set r.ms_gstate = '已回复' where r.contentid = '");
-                            sb.append(mMessages.get(position).getMS_MID());
-                            sb.append("' ");
+                            ms_police_receive.putField("MS_GState", "已回复");
+
                             ms_police_cks.putField("MS_CreateTime",
                                     Utils.getNetTimeByType("yyyy/MM/dd HH:mm:ss"));
 
@@ -285,8 +282,8 @@ public class MessageContentActivity extends RxBaseActivity {
  * 已阅信息通过广播发送给上级界面更新数据
  */
     public void sendBroadcast(MessageReceive ms) {
-        Intent intent = new Intent(mAction);
-        intent.putExtra(mAction, ms);
+        Intent intent = new Intent(sAction);
+        intent.putExtra(sAction, ms);
         sendBroadcast(intent);
     }
 

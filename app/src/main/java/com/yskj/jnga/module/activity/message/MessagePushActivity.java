@@ -71,7 +71,7 @@ public class MessagePushActivity extends RxBaseActivity {
             @Override
             public void convertView(CommonRecyclerViewHolder holder, StatisticInfo.BeanResult result) {
                 holder.setText(R.id.tv_title, result.getNAME());
-                holder.setText(R.id.tv_conent, "历史信息" + result.getCOUNT() + ":有效统计30天");
+                holder.setText(R.id.tv_conent, "信息总数" + result.getCOUNT() + ":有效统计30天");
                 if (result.getCOUNT() != 0) {
                     GifView gif = holder.getView(R.id.gif);
                     gif.setMovieResource(R.raw.new_message);
