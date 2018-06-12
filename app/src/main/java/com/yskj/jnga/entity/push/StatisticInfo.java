@@ -5,9 +5,9 @@ import java.util.List;
 
 /**
  * 统计类
- * 
+ *
  * @author saber
- * 
+ *
  */
 public class StatisticInfo implements Serializable {
 
@@ -23,6 +23,8 @@ public class StatisticInfo implements Serializable {
 		private String PID;
 		private String NAME;
 		private int COUNT;
+		private int READ;
+		private int UNREAD;
 
 		public String getID() {
 			return ID;
@@ -48,6 +50,8 @@ public class StatisticInfo implements Serializable {
 			NAME = nAME;
 		}
 
+
+
 		public int getCOUNT() {
 			return COUNT;
 		}
@@ -56,6 +60,23 @@ public class StatisticInfo implements Serializable {
 			COUNT = cOUNT;
 		}
 
+		public int getREAD() {
+			return READ;
+		}
+
+		public void setREAD(int rEAD) {
+			READ = rEAD;
+		}
+
+		public int getUNREAD() {
+			return UNREAD;
+		}
+
+		public void setUNREAD(int uNREAD) {
+			UNREAD = uNREAD;
+		}
+
+
 		@Override
 		public String toString() {
 			return "BeanResult{" +
@@ -63,6 +84,8 @@ public class StatisticInfo implements Serializable {
 					", PID='" + PID + '\'' +
 					", NAME='" + NAME + '\'' +
 					", COUNT=" + COUNT +
+					", READ=" + READ +
+					", UNREAD=" + UNREAD +
 					'}';
 		}
 	}

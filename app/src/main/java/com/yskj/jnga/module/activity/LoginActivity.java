@@ -1,6 +1,7 @@
 package com.yskj.jnga.module.activity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -34,6 +35,7 @@ import com.yskj.jnga.network.xml.XmlPackage;
 import com.yskj.jnga.utils.SpUtil;
 import com.yskj.jnga.utils.Utils;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
 /**
@@ -54,10 +56,10 @@ public class LoginActivity extends RxBaseActivity implements View.OnClickListene
     private String deviceId; // 设备唯一标识码
     private String simSerialNumber; // SIM卡号
 
-	/*
+    /*
      * login-wf#PSW#123账号密码，null未记住账号 ;isKeepAccout-是否记住账号密码;
-	 * isAutologin-是否自动登录;isPswShow-密码是否可见
-	 */
+     * isAutologin-是否自动登录;isPswShow-密码是否可见
+     */
 
     @Override
     public int getLayoutId() {
@@ -66,8 +68,9 @@ public class LoginActivity extends RxBaseActivity implements View.OnClickListene
 
     @Override
     public void initViews(Bundle savedInstanceState) {
-        initVar();
+
         initWidget();
+        mSpUtil = App.getInstance().getSpUtil();
     }
 
     @Override
@@ -102,20 +105,27 @@ public class LoginActivity extends RxBaseActivity implements View.OnClickListene
         }
     }
 
+    @SuppressLint("HardwareIds")
     private void initVar() {
-
-        mSpUtil = App.getInstance().getSpUtil();
 
         TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(LoginActivity.this, "对不起，您没有授予应用读取手机信息的权限", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (tm != null) {
-            deviceId = tm.getDeviceId();
-            simSerialNumber = tm.getSimSerialNumber();
-            String androidId = Settings.System.getString(getContentResolver(), Settings.System.ANDROID_ID);
-            //Log.i(TAG, "设备码 " + deviceId + " SIM卡号 " + simSerialNumber + " Android Id " + androidId);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, 0x12);
+        } else {
+            if (tm != null) {
+                deviceId = tm.getDeviceId();
+                simSerialNumber = tm.getSimSerialNumber();
+                String androidId = Settings.System.getString(getContentResolver(), Settings.System.ANDROID_ID);
+                //Log.i(TAG, "设备码 " + deviceId + " SIM卡号 " + simSerialNumber + " Android Id " + androidId);
+
+                if (Utils.isNetworkAvailable(context)) {
+                    // Updated at 2016/03/22
+                    // 根据客户需求，应用登陆名在前段不区分大小写，服务器中用户名如有英文字母则用大写
+                    // 如用户输入xj001或XJ001，都以XJ001在数据库中查找
+                    new AsyncLoader().execute("login", mEdit_user_name.getText().toString().toUpperCase(),
+                            Utils.md5(mEdit_user_password.getText().toString()));
+                }
+            }
         }
     }
 
@@ -279,13 +289,21 @@ public class LoginActivity extends RxBaseActivity implements View.OnClickListene
         }
     }
 
-    private class RegisterTask extends AsyncTask<String, Integer, Integer> {
+    private static class RegisterTask extends AsyncTask<String, Integer, Integer> {
+
+        private WeakReference<LoginActivity> reference;
+
+        RegisterTask(LoginActivity activity) {
+            this.reference = new WeakReference<>(activity);
+        }
+
         String loginAccount;
 
         @Override
         protected Integer doInBackground(String... params) {
-            loginAccount = mEdit_user_name.getText().toString().toUpperCase();
-            if (simSerialNumber == null) {
+            LoginActivity activity = reference.get();
+            loginAccount = activity.mEdit_user_name.getText().toString().toUpperCase();
+            if (activity.simSerialNumber == null) {
                 return 1;
 
             } else if (loginAccount.equals("")) {
@@ -296,14 +314,14 @@ public class LoginActivity extends RxBaseActivity implements View.OnClickListene
                 try {
                     // 判断设备是否已被注册,用户名已被使用
                     String sqlStr = "from (select * from JNGA_USERS where USER_ID = '" + loginAccount
-                            + "' or DEV_ID = '" + deviceId + "' ) JNGA_USERS";
+                            + "' or DEV_ID = '" + activity.deviceId + "' ) JNGA_USERS";
                     ArrayList<BaseTable> tables = DataOperation.queryTable("JNGA_USERS", sqlStr);
 
                     if (tables.size() != 0) {
                         for (BaseTable table : tables) {
                             if (table.getField("USER_ID").equals(loginAccount)) {
                                 return 6;
-                            } else if (table.getField("DEV_ID").equals(deviceId)) {
+                            } else if (table.getField("DEV_ID").equals(activity.deviceId)) {
                                 return 7;
                             }
                         }
@@ -313,8 +331,8 @@ public class LoginActivity extends RxBaseActivity implements View.OnClickListene
                     BaseTable userTable = new BaseTable();
                     userTable.setTableName("JNGA_USERS");
                     userTable.putField("USER_ID", loginAccount);
-                    userTable.putField("DEV_ID", deviceId);
-                    userTable.putField("PHONE_SIM", simSerialNumber);
+                    userTable.putField("DEV_ID", activity.deviceId);
+                    userTable.putField("PHONE_SIM", activity.simSerialNumber);
                     userTable.putField("USER_DEV", "1");
 
                     if (DataOperation.insertOrUpdateTable(userTable)) {
@@ -335,29 +353,30 @@ public class LoginActivity extends RxBaseActivity implements View.OnClickListene
 
         @Override
         protected void onPostExecute(Integer result) {
+            LoginActivity activity = reference.get();
             switch (result) {
                 case 1:
-                    Toast.makeText(getApplicationContext(), "请插入SIM卡", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "请插入SIM卡", Toast.LENGTH_SHORT).show();
                     break;
                 case 2:
-                    Toast.makeText(getApplicationContext(), "用户名不能为空", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "用户名不能为空", Toast.LENGTH_SHORT).show();
                     break;
                 case 3:
-                    Toast.makeText(getApplicationContext(),
-                            "恭喜用户" + loginAccount + "设备标识" + deviceId + "SIM卡号为" + simSerialNumber + "的设备注册成功，请联系管理员激活吧",
+                    Toast.makeText(activity,
+                            "恭喜用户" + loginAccount + "设备标识" + activity.deviceId + "SIM卡号为" + activity.simSerialNumber + "的设备注册成功，请联系管理员激活吧",
                             Toast.LENGTH_SHORT).show();
                     break;
                 case 4:
-                    Toast.makeText(getApplicationContext(), "注册失败", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "注册失败", Toast.LENGTH_SHORT).show();
                     break;
                 case 5:
-                    Toast.makeText(getApplicationContext(), "网络异常", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "网络异常", Toast.LENGTH_SHORT).show();
                     break;
                 case 6:
-                    Toast.makeText(getApplicationContext(), "该用户已被使用", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "该用户已被使用", Toast.LENGTH_SHORT).show();
                     break;
                 case 7:
-                    Toast.makeText(getApplicationContext(), "该设备已被注册", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "该设备已被注册", Toast.LENGTH_SHORT).show();
                     break;
             }
         }
@@ -368,16 +387,11 @@ public class LoginActivity extends RxBaseActivity implements View.OnClickListene
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.register_device:
-                new RegisterTask().execute();
+                new RegisterTask(this).execute();
                 break;
             case R.id.btn_login:
-                if (Utils.isNetworkAvailable(context)) {
-                    // Updated at 2016/03/22
-                    // 根据客户需求，应用登陆名在前段不区分大小写，服务器中用户名如有英文字母则用大写
-                    // 如用户输入xj001或XJ001，都以XJ001在数据库中查找
-                    new AsyncLoader().execute("login", mEdit_user_name.getText().toString().toUpperCase(),
-                            Utils.md5(mEdit_user_password.getText().toString()));
-                }
+                initVar();
+
                 break;
         }
     }
