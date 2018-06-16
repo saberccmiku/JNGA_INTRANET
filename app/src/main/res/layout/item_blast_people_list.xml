@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_unit_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/x40"
+        android:paddingTop="@dimen/x20"
+        android:text="公司名称"
+        android:textStyle="bold" />
+
+    <ys.oa.widget.AutoGridView
+        android:id="@+id/gv_window"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/x20"
+        android:columnWidth="80dp"
+        android:horizontalSpacing="15dp"
+        android:numColumns="4"
+        android:padding="@dimen/x20"
+        android:stretchMode="columnWidth" >
+    </ys.oa.widget.AutoGridView>
+
+</LinearLayout>

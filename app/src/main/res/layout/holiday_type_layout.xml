@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingLeft="30dp"
+    android:paddingRight="10dp" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:text="注意:请根据选择的假期类型补全以下内容"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="@dimen/x40" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#E5F1F5"
+            android:text="序号"
+            android:textSize="@dimen/x30" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x4"
+            android:layout_marginStart="@dimen/x4"
+            android:layout_weight="2"
+            android:background="#E5F1F5"
+            android:text="假期类型"
+            android:textSize="@dimen/x30" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x4"
+            android:layout_marginStart="@dimen/x4"
+            android:layout_weight="2.5"
+            android:background="#E5F1F5"
+            android:text="开始时间"
+            android:textSize="@dimen/x30" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x4"
+            android:layout_marginStart="@dimen/x4"
+            android:layout_weight="3"
+            android:background="#E5F1F5"
+            android:text="结束时间"
+            android:textSize="@dimen/x30" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x4"
+            android:layout_marginStart="@dimen/x4"
+            android:layout_weight="3"
+            android:background="#E5F1F5"
+            android:text="法定节假日"
+            android:textSize="@dimen/x30" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
+</LinearLayout>

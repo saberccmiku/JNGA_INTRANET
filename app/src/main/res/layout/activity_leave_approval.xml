@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/x20" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="@dimen/x40"
+        android:layout_marginTop="@dimen/x80" >
+
+        <ImageButton
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="@dimen/x30"
+            android:layout_marginStart="@dimen/x30"
+            android:background="@drawable/ic_arrow_left_grey600_24dp"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="请假审批明细"
+            android:textSize="@dimen/x45" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <!-- 个人信息 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/title_bg"
+                android:gravity="center_vertical"
+                android:paddingEnd="@dimen/x20"
+                android:paddingLeft="@dimen/x25"
+                android:paddingRight="@dimen/x20"
+                android:text="个人信息"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/x40" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x3"
+                android:background="#20A8CA" />
+
+            <include
+                android:id="@+id/include_grxx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/details_base_layout" />
+        </LinearLayout>
+
+        <!-- 假期明细 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/title_bg"
+                android:gravity="center_vertical"
+                android:paddingEnd="@dimen/x20"
+                android:paddingLeft="@dimen/x25"
+                android:paddingRight="@dimen/x20"
+                android:text="假期明细"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/x40" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x3"
+                android:background="#20A8CA" />
+
+            <include
+                android:id="@+id/include_jqmx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/details_details_layout" />
+        </LinearLayout>
+
+        <!-- 审批流程 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/title_bg"
+                android:gravity="center_vertical"
+                android:paddingEnd="@dimen/x20"
+                android:paddingLeft="@dimen/x25"
+                android:paddingRight="@dimen/x20"
+                android:text="审批进度"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/x40" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x3"
+                android:background="#20A8CA" />
+
+            <include
+                android:id="@+id/include_splc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/details_note_layout" />
+        </LinearLayout>
+
+        <!-- 我的审批 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/title_bg"
+                android:gravity="center_vertical"
+                android:paddingEnd="@dimen/x20"
+                android:paddingLeft="@dimen/x25"
+                android:paddingRight="@dimen/x20"
+                android:text="我的审批"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/x40" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x3"
+                android:background="#20A8CA" />
+
+            <RadioGroup
+                android:id="@+id/rg_spjg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="20dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="审批结果"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/rb_spjg_agree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="同意" />
+
+                <RadioButton
+                    android:id="@+id/rb_spjg_disagree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="不同意" />
+            </RadioGroup>
+
+            <!--
+         <LinearLayout
+                android:id="@+id/ll_select_leader" 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:visibility="gone" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/person"
+                    android:gravity="center_vertical"
+                    android:text="指定分管领导：" />
+
+                <EditText
+                    android:id="@+id/et_leader_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="4dp"
+                    android:drawableRight="@drawable/click"
+                    android:focusable="false"
+                    android:hint="(点击加载名单)"
+                    android:textColor="#D4D4D4"
+                    android:textSize="12sp" />
+            </LinearLayout>
+            -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/approval"
+                    android:text="审批意见"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_spyj"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/window_bg"
+                    android:gravity="top"
+                    android:hint="输入意见"
+                    android:padding="6dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.yskj.jnga.widget.Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/l_selector_roundrect1"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:paddingTop="8dp"
+            android:text="提交"
+            android:textColor="#FFF"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+</LinearLayout>

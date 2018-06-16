@@ -5,4 +5,12 @@
     <color name="colorAccent">#FF4081</color>
     <!--layout_navigation_header-->
     <color name="navHeadImageBackground">#F8668D</color>
+    <color name="primary_text">#212121</color>
+    <color name="trans_black_25">#40000000</color>
+    <color name="secondary_text">#727272</color>
+    <color name="chrome_grey">#F2F2F2</color>
+    <color name="bg_color">#1a7fcf</color>
+    <color name="background">#FFFFFF</color>
+    <color name="date_picker_view_1">#59B29C</color>
+    <color name="date_picker_view_2">#333333</color>
 </resources>

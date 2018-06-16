@@ -16,12 +16,14 @@ import android.widget.TextView;
 public class ViewHolder  {
     private final SparseArray<View> mViews;
     private View mConvertView;
+    private int position;
 
     public ViewHolder(Context context,ViewGroup parent,int layoutId,int position) {
         mViews = new SparseArray<>();
         mConvertView = LayoutInflater.from(context).inflate(layoutId,parent,false);
         //setTag
         mConvertView.setTag(this);
+        this.position = position;
     }
 
     /**
@@ -68,6 +70,14 @@ public class ViewHolder  {
         return mConvertView;
     }
 
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
     /**
      * 为TextView设置字符串
      * @param viewId 控件id
@@ -91,5 +101,12 @@ public class ViewHolder  {
         imageView.setImageBitmap(bitmap);
         return this;
     }
+
+    public ViewHolder setBackgroundResource(int viewId,int drawableId){
+        ImageView imageView = getView(viewId);
+        imageView.setBackgroundResource(drawableId);
+        return this;
+    }
+
 
 }

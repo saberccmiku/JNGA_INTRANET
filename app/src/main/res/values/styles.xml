@@ -12,4 +12,41 @@
     <!-- GIfView -->
     <style name="Widget_GifView" />
 
+    <!-- searchView -->
+    <style name="MaterialSearch" parent="@android:style/Theme.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.7</item>
+    </style>
+
+    <!-- CustomDatePicker -->
+    <style name="time_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@color/background</item>
+    </style>
+
+    <!--searchInfoActivity-->
+    <style name="Search_theme" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#1330b0</item>
+        <item name="colorPrimaryDark">#1330b0</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <!-- calendar -->
+    <style name="weekName">
+        <item name="android:layout_width">0.0dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:textSize">14sp</item>
+    </style>
 </resources>

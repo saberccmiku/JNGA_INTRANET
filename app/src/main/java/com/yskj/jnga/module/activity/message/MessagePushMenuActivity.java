@@ -88,7 +88,7 @@ public class MessagePushMenuActivity extends RxBaseActivity implements OnClickLi
         RecyclerView rv = findViewById(R.id.rv);
         rv.setLayoutManager(new GridLayoutManager(MessagePushMenuActivity.this, 3));
         mMenuEntities = new ArrayList<>();
-        mAdapter = new CommonRecyclerAdapter<MenuEntity>(this, R.layout.item_nemu, mMenuEntities) {
+        mAdapter = new CommonRecyclerAdapter<MenuEntity>(this, R.layout.item_menu, mMenuEntities) {
             @Override
             public void convertView(CommonRecyclerViewHolder holder, MenuEntity entity) {
                 holder.setBackgroundResource(R.id.iv, entity.getResId());

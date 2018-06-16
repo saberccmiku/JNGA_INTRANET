@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/x20" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="@dimen/x40"
+            android:layout_marginTop="@dimen/x40" >
+
+            <ImageButton
+                android:id="@+id/ib_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="@dimen/x30"
+                android:layout_marginStart="@dimen/x30"
+                android:background="@drawable/ic_arrow_left_grey600_24dp"
+                android:contentDescription="@string/app_name"
+                android:visibility="gone" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="公车审批明细"
+                android:textSize="@dimen/x45" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- 用车单位 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/title_bg"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="@dimen/x20"
+                    android:paddingLeft="@dimen/x25"
+                    android:paddingRight="@dimen/x20"
+                    android:text="用车单位"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/x40" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x3"
+                    android:background="#20A8CA" />
+
+                <include
+                    android:id="@+id/include_ycdw"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    layout="@layout/official_apply_unit" />
+            </LinearLayout>
+
+            <!-- 用车明细 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/title_bg"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="@dimen/x20"
+                    android:paddingLeft="@dimen/x25"
+                    android:paddingRight="@dimen/x20"
+                    android:text="申请明细"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/x40" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x3"
+                    android:background="#20A8CA" />
+
+                <include
+                    android:id="@+id/include_sqmx"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    layout="@layout/official_veh_details" />
+            </LinearLayout>
+
+            <!-- 审批流程 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/title_bg"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="@dimen/x20"
+                    android:paddingLeft="@dimen/x25"
+                    android:paddingRight="@dimen/x20"
+                    android:text="审批进度"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/x40" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x3"
+                    android:background="#20A8CA" />
+
+                <include
+                    android:id="@+id/include_splc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    layout="@layout/details_note_layout" />
+            </LinearLayout>
+
+            <!-- 我的审批 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/title_bg"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="@dimen/x20"
+                    android:paddingLeft="@dimen/x25"
+                    android:paddingRight="@dimen/x20"
+                    android:text="我的审批"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/x40" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x3"
+                    android:background="#20A8CA" />
+
+                <include
+                    android:id="@+id/inclede_wdsp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    layout="@layout/official_my_approve" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <com.yskj.jnga.widget.Button
+                android:id="@+id/btn_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/l_selector_roundrect1"
+                android:gravity="center"
+                android:paddingBottom="8dp"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:paddingTop="8dp"
+                android:text="提交"
+                android:textColor="#FFF"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>

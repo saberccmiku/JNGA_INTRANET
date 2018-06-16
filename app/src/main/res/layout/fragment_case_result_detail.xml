@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DCDCDC" >
+
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="案件编号"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_caseid"
+            android:text="A4501163100002015110001"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="受理单位"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_slunit"
+            android:text="广西南宁市公安局高新派出所"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="案件状态"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_ajstate"
+            android:text="已立案"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="报警类型"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_jjtype"
+            android:text="110(120、122)接转"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="案件类型"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_ajtype"
+            android:text="刑事"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="案别"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_anbie"
+            android:text="电动车盗窃"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="案件名称"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_ajname"
+            android:text="王大莉被盗窃电动自行车案"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="报警时间"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_bjtime"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="开始时间"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_starttime"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="结束时间"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_endtime"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="区县"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_quxian"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="街道"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_street"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="地址"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_address"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="区域"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_area"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="作案时间描叙"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_selecttime"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="作案区间描叙"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_selectspace"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="作案工具描叙"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_worktool"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="作案地点描叙"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_selectpart"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="作案对象描叙"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_selectobj"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="主办侦查员中文姓名"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_zcyzb"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="协办侦查员中文姓名"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_zcyxb"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="作案方法"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_methods"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="案件程度"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_chengdu"
+            android:text="一般"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="涉案金额"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_aprice"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+    <View
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+        <TextView
+            android:text="案件描述"
+            android:textStyle="bold"
+            android:textColor="#A9A9A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_case_result_detial_content"
+            android:text="2015年10月31日11时许，受害人王大莉将一辆电动自行车停放在广西南宁市高新区高新区高新二路华城都市锦华苑门口，离开时锁了大锁。当天16时30分，王大莉来取车时发现被盗窃。被盗一辆白色的轻骑牌电动自行车，车牌：南宁JX910，60V，车架号：130512367，电机号：FM2001302688942，购期：2013年8月，购价：2400元人民币，车主：王大莉。"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+    </LinearLayout>
+    
+</LinearLayout>
+</ScrollView>

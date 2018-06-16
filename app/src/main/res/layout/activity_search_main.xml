@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg_02"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/iv_top"
+        android:layout_width="@dimen/x1080"
+        android:layout_height="@dimen/y160" >
+
+        <ImageView
+            android:layout_width="@dimen/x1080"
+            android:layout_height="@dimen/y160"
+            android:background="@drawable/ywcx_title"
+            android:contentDescription="@string/app_name" />
+
+        <ImageButton
+            android:id="@+id/ib_baack"
+            android:contentDescription="@string/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/actionbar_back" 
+            android:layout_marginTop="@dimen/y40"
+            android:layout_marginLeft="@dimen/x25"/>
+    </FrameLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tv_bottom"
+        android:layout_below="@+id/iv_top"
+        android:layout_centerInParent="true"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@mipmap/message_bj_bottom"
+        android:gravity="center_horizontal|bottom"
+        android:paddingBottom="5dp"
+        android:text="大数据中心"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>

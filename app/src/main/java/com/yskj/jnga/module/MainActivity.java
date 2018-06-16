@@ -16,8 +16,10 @@ import com.yskj.jnga.adapter.CommonRecyclerAdapter;
 import com.yskj.jnga.adapter.CommonRecyclerViewHolder;
 import com.yskj.jnga.entity.MenuEntity;
 import com.yskj.jnga.entity.push.StatisticInfo;
+import com.yskj.jnga.module.activity.business.SearchMainActivity;
 import com.yskj.jnga.module.activity.message.MessagePushMenuActivity;
 import com.yskj.jnga.module.base.RxBaseActivity;
+import com.yskj.jnga.module.activity.office.SecondMenuActivity;
 import com.yskj.jnga.network.json.RetrofitHelper;
 import com.yskj.jnga.utils.UIUtils;
 
@@ -51,8 +53,8 @@ public class MainActivity extends RxBaseActivity {
         rv_menu.setLayoutManager(new GridLayoutManager(MainActivity.this, 3));
         menuEntities = new ArrayList<>();
         MenuEntity seEntity = new MenuEntity("执法监督", R.drawable.zfjd, null);
-        MenuEntity pwEntity = new MenuEntity("业务工作", R.drawable.ywgz, null);
-        MenuEntity dwEntity = new MenuEntity("日常办公", R.drawable.rcbg, null);
+        MenuEntity pwEntity = new MenuEntity("业务工作", R.drawable.ywgz, new Intent(MainActivity.this, SearchMainActivity.class));
+        MenuEntity dwEntity = new MenuEntity("日常办公", R.drawable.rcbg, new Intent(MainActivity.this,SecondMenuActivity.class));
         MenuEntity tmEntity = new MenuEntity("队伍管理", R.drawable.dwgl, null);
         MenuEntity tdEntity = new MenuEntity("待办工作", R.drawable.dbgz, null);
         MenuEntity mpEntity = new MenuEntity("信息推送", R.drawable.xxts, new Intent(MainActivity.this, MessagePushMenuActivity.class));
@@ -62,7 +64,7 @@ public class MainActivity extends RxBaseActivity {
         menuEntities.add(tmEntity);
         menuEntities.add(tdEntity);
         menuEntities.add(mpEntity);
-        mCommonRecyclerAdapter = new CommonRecyclerAdapter<MenuEntity>(this, R.layout.item_nemu, menuEntities) {
+        mCommonRecyclerAdapter = new CommonRecyclerAdapter<MenuEntity>(this, R.layout.item_menu, menuEntities) {
             @Override
             public void convertView(CommonRecyclerViewHolder holder, MenuEntity entity) {
                 holder.setBackgroundResource(R.id.iv, entity.getResId());

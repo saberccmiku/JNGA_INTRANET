@@ -1,9 +1,12 @@
 package com.yskj.jnga.utils;
 
+import java.util.ArrayList;
 import java.util.List;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+
+import com.yskj.jnga.network.xml.BaseTable;
 
 public class SpUtil {
     private SharedPreferences sp;
@@ -221,5 +224,64 @@ public class SpUtil {
         }
         return sp.getString("lastRegTime", "");
     }
+
+    public BaseTable getPoliceInfo() {
+        try {
+            String objBase64String = sp.getString("policeInfo", "");
+            byte[] objBase64Byte = IOUtils.stringToByte(objBase64String);
+            byte[] objByte = Base64Utils.base64ByteToByte(objBase64Byte);
+            BaseTable policeInfo = (BaseTable) IOUtils.byteToObject(objByte);
+
+            return policeInfo;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public void setPoliceInfo(BaseTable policeInfo) {
+        try {
+            byte[] objByte = IOUtils.objectToByte(policeInfo);
+            byte[] objBase64Byte = Base64Utils.byteToBase64Byte(objByte);
+            String objBase64String = IOUtils.byteToString(objBase64Byte);
+            sp.edit().putString("policeInfo", objBase64String).apply();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * 缓存请假申请待审核的数据
+     *
+     * @return 待审核的数据
+     */
+    public ArrayList<BaseTable> getHolidayForm() {
+        ArrayList<BaseTable> tables = null;
+        try {
+            String objBase64String = sp.getString("JNGA_QJ_INFO_RESULT", null);
+            if (objBase64String != null) {
+                byte[] objBase64Byte = IOUtils.stringToByte(objBase64String);
+                byte[] objByte = Base64Utils.base64ByteToByte(objBase64Byte);
+                tables = (ArrayList<BaseTable>) IOUtils.byteToObject(objByte);
+            }
+            return tables;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public void setHolidayForm(ArrayList<BaseTable> tables) {
+        try {
+            byte[] objByte = IOUtils.objectToByte(tables);
+            byte[] objBase64Byte = Base64Utils.byteToBase64Byte(objByte);
+            String objBase64String = IOUtils.byteToString(objBase64Byte);
+            sp.edit().putString("JNGA_QJ_INFO_RESULT", objBase64String).apply();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }

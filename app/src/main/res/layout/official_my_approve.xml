@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RadioGroup
+        android:id="@+id/rg_spjg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingTop="20dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="审批结果"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/rb_spjg_agree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="同意" />
+
+        <RadioButton
+            android:id="@+id/rb_spjg_disagree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="不同意" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/ll_select_car"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:visibility="gone" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/police_car"
+            android:gravity="center_vertical"
+            android:text="指派车辆：" />
+
+        <EditText
+            android:id="@+id/et_car_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:drawablePadding="4dp"
+            android:drawableRight="@drawable/click"
+            android:focusable="false"
+            android:hint="(点击选择车辆)"
+            android:textColor="#D4D4D4"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_select_leader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:visibility="gone" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/person"
+            android:gravity="center_vertical"
+            android:text="指定分管领导：" />
+
+        <EditText
+            android:id="@+id/et_leader_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:drawablePadding="4dp"
+            android:drawableRight="@drawable/click"
+            android:focusable="false"
+            android:hint="(点击加载名单)"
+            android:textColor="#D4D4D4"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/approval"
+            android:text="审批意见"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/et_spyj"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/window_bg"
+            android:gravity="top"
+            android:hint="输入意见"
+            android:padding="6dp" />
+    </LinearLayout>
+
+</LinearLayout>

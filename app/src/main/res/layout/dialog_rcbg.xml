@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/id_pop_dialog_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentTop="true"
+    android:background="@drawable/trm_popup_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/vg_qjsq_spcx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="3dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/rcbg_selected_bar"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="请假审批"
+            android:textSize="16sp"
+            android:drawableLeft="@mipmap/multichat" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/vg_qjsq_jdcx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="3dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/rcbg_selected_bar"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="进度查询"
+            android:textSize="16sp" 
+            android:drawableLeft="@mipmap/facetoface"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>

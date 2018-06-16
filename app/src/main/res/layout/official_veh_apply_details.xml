@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:background="#E5F1F5"
+            android:gravity="end"
+            android:text="用车区域："
+            android:textSize="@dimen/x40" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.45" >
+
+            <com.view.dropedittext.DropEditText
+                android:id="@+id/et_area"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                app:drawableRight="@drawable/drop"
+                app:dropMode="flow_parent"
+                app:hint="下拉选择" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:background="#E5F1F5"
+            android:gravity="end"
+            android:text="前往地点："
+            android:textSize="@dimen/x40" />
+
+        <EditText
+            android:id="@+id/et_to_add"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.45"
+            android:background="@android:color/transparent"
+            android:hint="开车前往目的地"
+            android:paddingLeft="@dimen/x30"
+            android:textSize="@dimen/x40" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:background="@android:color/transparent"
+            android:gravity="end"
+            android:paddingLeft="@dimen/x30"
+            android:text="用车时间："
+            android:textSize="@dimen/x40" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.45" >
+
+            <TextView
+                android:id="@+id/tv_start_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x30"
+                android:background="@android:color/transparent"
+                android:text="2017-12-10"
+                android:textSize="@dimen/x40" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x30"
+                android:text="至" />
+
+            <TextView
+                android:id="@+id/tv_end_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x30"
+                android:background="@android:color/transparent"
+                android:text="2017-12-10"
+                android:textSize="@dimen/x40" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:background="#FCC06A"
+            android:gravity="end"
+            android:text="用车事由："
+            android:textSize="@dimen/x40" />
+
+        <EditText
+            android:id="@+id/et_reason"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.45"
+            android:background="#FFFFCC"
+            android:focusable="false"
+            android:hint="请选择用车事由"
+            android:paddingLeft="@dimen/x30"
+            android:textSize="@dimen/x40" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.15"
+            android:gravity="center_vertical|end"
+            android:text="车属机构："
+            android:textSize="@dimen/x40" />
+
+        <RadioGroup
+            android:id="@+id/rg_select"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.45"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/rb_dw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="单位"
+                android:textSize="@dimen/x40" />
+
+            <RadioButton
+                android:id="@+id/rb_fj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="分局"
+                android:textSize="@dimen/x40" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_car"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:background="#FCC06A"
+            android:gravity="end"
+            android:text="指派车辆："
+            android:textSize="@dimen/x40" />
+
+        <EditText
+            android:id="@+id/et_car"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.45"
+            android:background="#FFFFCC"
+            android:focusable="false"
+            android:hint="请选择本单位车辆"
+            android:paddingLeft="@dimen/x30"
+            android:textSize="@dimen/x40" />
+    </LinearLayout>
+
+</LinearLayout>

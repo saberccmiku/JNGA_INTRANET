@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/x20" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="@dimen/x40"
+        android:layout_marginTop="@dimen/x40" >
+
+        <ImageButton
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="@dimen/x30"
+            android:layout_marginStart="@dimen/x30"
+            android:background="@drawable/ic_arrow_left_grey600_24dp"
+            android:contentDescription="@string/app_name"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="公车接还明细"
+            android:textSize="@dimen/x45" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <!-- 用车单位 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/title_bg"
+                android:gravity="center_vertical"
+                android:paddingEnd="@dimen/x20"
+                android:paddingLeft="@dimen/x25"
+                android:paddingRight="@dimen/x20"
+                android:text="用车单位"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/x40" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x3"
+                android:background="#20A8CA" />
+
+            <include
+                android:id="@+id/include_ycdw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/official_apply_unit" />
+        </LinearLayout>
+
+        <!-- 用车明细 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/title_bg"
+                android:gravity="center_vertical"
+                android:paddingEnd="@dimen/x20"
+                android:paddingLeft="@dimen/x25"
+                android:paddingRight="@dimen/x20"
+                android:text="申请明细"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/x40" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x3"
+                android:background="#20A8CA" />
+
+            <include
+                android:id="@+id/include_sqmx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/official_veh_details" />
+        </LinearLayout>
+
+        <!-- 公务车接受 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/title_bg"
+                android:gravity="center_vertical"
+                android:paddingEnd="@dimen/x20"
+                android:paddingLeft="@dimen/x25"
+                android:paddingRight="@dimen/x20"
+                android:text="接车明细"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/x40" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x3"
+                android:background="#20A8CA" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#E5F1F5"
+                    android:text="还车人警号:" />
+
+                <EditText
+                    android:id="@+id/et_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:hint="请输入有效的警号"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#E5F1F5"
+                    android:text="还车人姓名:" />
+
+                <EditText
+                    android:id="@+id/et_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:hint="请输入有效姓名"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#E5F1F5"
+                    android:text="还车时间:" />
+
+                <TextView
+                    android:id="@+id/tv_h_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="(点击选择时间)" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#E5F1F5"
+                    android:text="接车时间:" />
+
+                <TextView
+                    android:id="@+id/tv_j_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="(点击选择时间)" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#E5F1F5"
+                    android:text="还车车况:" />
+
+                <com.view.dropedittext.DropEditText
+                    android:id="@+id/et_car_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    app:drawableRight="@drawable/drop"
+                    app:dropMode="flow_parent"
+                    app:hint="下拉选择" />
+                
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.android.util.view.Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/l_selector_roundrect1"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:paddingTop="8dp"
+            android:text="提交"
+            android:textColor="#FFF"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+</LinearLayout>

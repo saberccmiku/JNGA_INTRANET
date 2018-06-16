@@ -193,7 +193,7 @@ public class MessageContentActivity extends RxBaseActivity {
         sb.append("( ");
         sb.append("select a.*, rownum rn from ");
         sb.append("(select MS_POLICENUM,MS_POLICENAME,MS_PUNIT,MS_CREATETIME,MS_MID,CONTENTID from ");
-        sb.append("ms_police_receive  where ms_gstate='未回复' and createts>(systimestamp -30)  and ms_policenum='");
+        sb.append("ms_police_receive  where ms_gstate='未回复' and createts>(systimestamp -3)  and ms_policenum='");
         sb.append(policeNum);
         sb.append("' and ms_sp_state ='");
         sb.append(mBeanResult.getID());
