@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.45" >
 
-            <com.view.dropedittext.DropEditText
+            <com.yskj.jnga.widget.dropedittext.DropEditText
                 android:id="@+id/et_area"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"

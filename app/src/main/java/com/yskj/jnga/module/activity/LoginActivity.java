@@ -32,6 +32,7 @@ import com.yskj.jnga.network.xml.DataSetList;
 import com.yskj.jnga.network.xml.DocInfor;
 import com.yskj.jnga.network.xml.PostHttp;
 import com.yskj.jnga.network.xml.XmlPackage;
+import com.yskj.jnga.task.QueryPoliceInfoTask;
 import com.yskj.jnga.utils.SpUtil;
 import com.yskj.jnga.utils.Utils;
 
@@ -224,6 +225,7 @@ public class LoginActivity extends RxBaseActivity implements View.OnClickListene
 
                                 mSpUtil.setPwd(mEdit_user_password.getText().toString());
                                 mSpUtil.setAuth(valueList.get(3));
+                                new QueryPoliceInfoTask().setPoliceInfo(ApiConstants.USER_ID);
 
                                 if (getIntent() != null && (getIntent().getBooleanExtra("isFromWelcome", false)
                                         || getIntent().getBooleanExtra("isFailedAutoLogin", false))) {
