@@ -55,4 +55,11 @@ public class ApiConstants {
      */
 
     public static final String MESSAGE_COUNT = "messsage_count";
+
+    /**
+     * 接入市局服务
+     */
+    public static final String SSO_URL = "http://20.124.163.4/sso";
+    public static final String UAM_URL = "http://20.124.163.3/uam";
+
 }
